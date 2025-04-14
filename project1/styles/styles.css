@@ -24,6 +24,15 @@ body {
     padding-bottom: 4rem;
 }
 
+.page-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+}
+
 /* Navbar Styles */
 .navbar {
     display: flex;
@@ -172,12 +181,6 @@ footer {
     display: block;
 }
 
-.page-wrapper {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
 /* Shortcut nav */
 .pagemenu a {
     color: #8ab4f8;
@@ -185,31 +188,41 @@ footer {
     font-weight: 500;
 }
 
+.side-shortcuts {
+    flex: 0 0 220px; /* fixed width */
+    background-color: #1f1f1f;
+    padding: 1rem;
+    border-right: 1px solid #333;
+    height: fit-content;
+    position: sticky;
+    top: 100px; /* sticks below navbar */
+}
+
+.side-shortcuts nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.side-shortcuts a {
+    color: #f5f5f5;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.side-shortcuts a:hover {
+    color: #8ab4f8;
+}
+
+/* Adjust main width when sidebar is present */
+main {
+    flex: 1;
+}
+
 .pagemenu a:hover {
     text-decoration: underline;
 }
-
-.top-shortcuts {
-    display: flex;
-    gap: 1em;
-    overflow-x: auto;
-    padding: 0.5em 1em;
-    background-color: #1f1f1f;
-    border-bottom: 1px solid #333;
-    top: 0;
-    z-index: 10;
-  }
-  
-  .top-shortcuts a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 500;
-    white-space: nowrap;
-  }
-  
-  .top-shortcuts a:hover {
-    text-decoration: underline;
-  }
 
   @font-face {
     font-family: 'Brand Victoria';
