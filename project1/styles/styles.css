@@ -11,6 +11,14 @@ main, section {
     margin: 0 auto;
 }
 
+html, body {
+    height: 100%;
+}
+
+main {
+    flex: 1;
+}
+
 
 body {
     font-family: 'Brand Victoria', sans-serif;
@@ -93,6 +101,39 @@ footer {
     height: 80px;
 }
 
+/* Table Layout */
+
+table{
+    width: 35%;
+    margin: 10px;
+    border-collapse: collapse;
+    border-color: white;
+}
+
+caption{
+    caption-side: left;
+    font-size: 1.5rem;
+    font-weight: bold;
+
+
+
+}
+
+th{
+    text-align: left;
+    padding: 10px;
+    font-size: 1.3rem;
+
+
+}
+td{
+    text-align: left;
+    padding: 10px;
+    font-size: 1rem;
+
+
+}
+
 .footer-left,
 .footer-right {
     display: flex;
@@ -116,6 +157,11 @@ footer {
     display: block;
 }
 
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
 
 /* Shortcut nav */
 .pagemenu a {
