@@ -2,6 +2,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon" type="image/png" href="images/favicon-32x32.png">
+    <link rel="stylesheet" href="styles/styles.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Company home page"/>
@@ -12,28 +14,23 @@
     <link href="styles/..." rel="stylesheet">
 </head>
 <body>
-  <header>
-    <!-- logo image is ai generated -->
-    <!-- using the prompt "company logo for IT computer and software company", using deepAI https://deepai.org/machine-learning-model/text2img -->
-    <a target=_blank href=images/logolarge.jpg><img src="images/logo.jpg" alt="Logo of a computer with a T in a hexagon on the screen"></a>
-		<h1>IT Solutions</h1>
-  </header>
-  <h3>Navigate</h3>
-  <!-- Navigation between pages-->
-  <!-- Use CSS to make horizontal?-->
-  <nav>
-    <p class="menu"><a href="index.html">Home</a></p> 
-    <p class="menu"><a href="jobs.html">Jobs</a></p> 
-    <p class="menu"><a href="apply.html">Apply</a></p> 
-    <p class="menu"><a href="about.html">About</a></p> 
-    <a href="mailto:info@itsolutions.com.au">Email</a>
-  </nav>
-  <h3>Page Shortcuts</h3>
-  <!-- Navigation within page-->
-  <nav>
-    <p class="pagemenu"><a href="#description">Welcome</a></p>
-    <p class="pagemenu"><a href="#jobAdd">Work for us</a></p>
-  </nav>
+  <header class="navbar">
+    <img src="images/logosmall.jpg" alt="IT Solutions Logo" class="logo">
+    <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="jobs.html">Jobs</a>
+        <a href="apply.html">Apply</a>
+        <a href="about.html">About</a>
+        <a href="mailto:info@itsolutions.com.au">Email</a>
+    </nav>
+</header>
+<nav class="top-shortcuts">
+  <a href="#juniorsoftware">Junior Software Developer</a>
+  <a href="#cybersecurity">Cybersecurity Specialist</a>
+</nav>
+
+
+
   <hr>
   <article>
     <section id = description>

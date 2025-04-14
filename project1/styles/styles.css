@@ -1,0 +1,111 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #121212;
+    color: #f5f5f5;
+    line-height: 1.6;
+    padding-bottom: 4rem;
+}
+
+/* Navbar Styles */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background-color: #1a1a1a;
+    border-bottom: 1px solid #333;
+}
+
+.logo {
+    height: 50px;
+    width: auto;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    color: #f5f5f5;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #8ab4f8;
+}
+
+/* Section Headers */
+h1, h2, h3 {
+    color: #f5f5f5;
+    padding: 1rem 2rem 0.5rem;
+}
+
+/* Paragraph and List Layout */
+section {
+    padding: 1rem 2rem;
+}
+
+p, ol, ul {
+    margin-bottom: 1rem;
+}
+
+ol, ul {
+    padding-left: 2rem;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    border-top: 1px solid #333;
+    background-color: #1a1a1a;
+}
+
+footer img {
+    height: 40px;
+    margin-top: 1rem;
+}
+
+/* Shortcut nav */
+.pagemenu a {
+    color: #8ab4f8;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.pagemenu a:hover {
+    text-decoration: underline;
+}
+
+.top-shortcuts {
+    display: flex;
+    gap: 1em;
+    overflow-x: auto;
+    padding: 0.5em 1em;
+    background-color: #1f1f1f;
+    border-bottom: 1px solid #333;
+    top: 0;
+    z-index: 10;
+  }
+  
+  .top-shortcuts a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  
+  .top-shortcuts a:hover {
+    text-decoration: underline;
+  }
+  
