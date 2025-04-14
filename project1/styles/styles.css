@@ -9,16 +9,12 @@ main, section {
     padding: 0 20px;
     max-width: 1000px;
     margin: 0 auto;
+    flex: 1;
 }
 
 html, body {
     height: 100%;
 }
-
-main {
-    flex: 1;
-}
-
 
 body {
     font-family: 'Brand Victoria', sans-serif;
@@ -40,11 +36,11 @@ body {
     border-bottom: 1px solid #333;
 }
 
-
 .navbar h1 {
     margin: 0;
     font-size: 2rem;
 }
+
 .brand {
     display: flex;
     align-items: center;
@@ -91,16 +87,6 @@ ol, ul {
     padding-left: 2rem;
 }
 
-footer {
-    display: flex;
-    justify-content: space-between; /* This pushes left and right to edges */
-    padding: 1rem;
-    background-color: #1a1a1a;
-    color: white;
-    flex-wrap: wrap;
-    height: 80px;
-}
-
 /* Table Layout */
 
 table{
@@ -114,25 +100,31 @@ caption{
     caption-side: left;
     font-size: 1.5rem;
     font-weight: bold;
-
-
-
 }
 
 th{
     text-align: left;
     padding: 10px;
     font-size: 1.3rem;
-
-
 }
 td{
     text-align: left;
     padding: 10px;
     font-size: 1rem;
+} 
 
+/* Footer */
 
+footer {
+    display: flex;
+    justify-content: space-between; /* This pushes left and right to edges */
+    padding: 1rem;
+    background-color: #1a1a1a;
+    color: white;
+    flex-wrap: wrap;
+    height: 80px;
 }
+
 
 .footer-left,
 .footer-right {
@@ -196,7 +188,6 @@ td{
     text-decoration: underline;
   }
 
-  
   @font-face {
     font-family: 'Brand Victoria';
     src: url("fonts/VIC-Regular.ttf") format("truetype");
