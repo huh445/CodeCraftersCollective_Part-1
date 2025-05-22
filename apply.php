@@ -24,7 +24,7 @@
   <fieldset>
      <hr>
 
-     <form action="https://mercury.swin.edu.au/it000000/formtest.php" method="post">
+     <form action="process_eoi.php" method="post">
         <h2>Register Your Interest</h2>
       
         <label for="job-ref">Job Reference Number:</label>
@@ -111,15 +111,15 @@
             <header><h3>Skills Information</h3></header>
             <fieldset>
             <legend>Required Technical Skills</legend>
-            <input type="checkbox" id="html" name="skills" value="HTML">
+            <input type="checkbox" id="html" name="skills[]" value="HTML">
             <label for="html">HTML</label>
-            <input type="checkbox" id="css" name="skills" value="CSS">
+            <input type="checkbox" id="css" name="skills[]" value="CSS">
             <label for="css">CSS</label>
-            <input type="checkbox" id="javascript" name="skills" value="JavaScript">
+            <input type="checkbox" id="javascript" name="skills[]" value="JavaScript">
             <label for="javascript">JavaScript</label>
-            <input type="checkbox" id="python" name="skills" value="Python">
+            <input type="checkbox" id="python" name="skills[]" value="Python">
             <label for="python">Python</label>
-            <input type="checkbox" id="java" name="skills" value="Java">
+            <input type="checkbox" id="java" name="skills[]" value="Java">
             <label for="java">Java</label>
             
             <br>

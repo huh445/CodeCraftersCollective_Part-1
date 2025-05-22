@@ -5,7 +5,7 @@
 $db_host = 'localhost';       // usually 'localhost'
 $db_user = 'root';
 $db_pass = '';
-$db_name = 'test';
+$db_name = 'codecrafterscollective';
 
 // Create and return a MySQLi connection
 function db_connect() {
