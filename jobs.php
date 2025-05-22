@@ -1,33 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <link rel="icon" type="image/png" href="images/favicon-32x32.png">
-    <link rel="stylesheet" href="styles/styles.css">
-    <meta charset="utf-8" >
-    <meta name="description" content="A page containing the jobs available" >
-    <meta name="keywords" content="IT jobs, job descriptions, software developer, cybersecurity specialist" >
-    <meta name="author" content="Code Crafters Collective"  >
-    <title>Job Descriptions</title>
-</head>
-<body>
-    <!--Navigation across pages-->
-    
-    <header class="navbar">
-        <div class="brand">
-            <a href="index.html">
-            <img src="images/logosmall.jpg" alt="IT Solutions Logo" class="logo">
-            </a>
-            <h1>IT Solutions</h1>
-        </div>
-        <nav class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="jobs.html">Jobs</a>
-            <a href="apply.html">Apply</a>
-            <a href="About.html">About</a>
-            <a href="mailto:info@itsolutions.com.au">Email</a>
-        </nav>
-    </header>
-    <div class="page-wrapper">
+<?php
+    $pageTitle = "Job Descriptions";
+    include "header.inc";
+?>
     <!-- Navigation within page-->
     <aside class="side-shortcuts">
         <p>
@@ -128,24 +102,7 @@
     </section>
 </main>
     </div>
-<!--Footer-->
-    <footer>
-        <div class="footer-left">
-        <img src="images/logosmall.jpg" alt="Logo of a computer with a T in a hexagon on the screen">
-    <p>
-        IT Solutions&copy;
-    </p>
-    </div>
-    <div class="footer-right">
-    <p>
-        <a target=_blank href=https://codecrafterscollectivegrouptask.atlassian.net/jira/software/projects/MBA/boards/1>
-        <img src="images/jiralogo.png" alt="Jira logo"></a>
-    </p>
-</div>
-    </footer>
-</body>
-</html>
-
+<?php include "footer.inc"; ?>
 
 <!--GenAI, as ChatGPT, prompts are listed below-->
 <!--Give me a job description for a Junior Software Developer at a fake company. dont name the company please. include average salary-->
