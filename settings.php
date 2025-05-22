@@ -2,7 +2,7 @@
 // settings.php
 
 // Database connection variables
-$db_host = 'localhost';       // usually 'localhost'
+$db_host = 'localhost';
 $db_user = 'root';
 $db_pass = '';
 $db_name = 'codecrafterscollective';
