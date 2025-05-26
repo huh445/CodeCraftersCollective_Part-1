@@ -1,31 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <link rel="icon" type="image/png" href="images/favicon-32x32.png">
-  <link rel="stylesheet" href="styles/styles.css">
-  <meta charset="UTF-8">
-  <meta name="description" content="Group Information Page">
-  <meta name="keywords" content="Group, Student IDs, Contributions, Interests">
-  <meta name="author" content="Your Group Name">
-  <title>Group Information</title>
-</head>
-<body>
-  <header class="navbar">
-      <div class="brand">
-        <a href="index.html">
-          <img src="images/logosmall.jpg" alt="IT Solutions Logo" class="logo">
-        </a>
-          <h1>IT Solutions</h1>
-      </div>
-      <nav class="nav-links">
-          <a href="index.html">Home</a>
-          <a href="jobs.html">Jobs</a>
-          <a href="apply.html">Apply</a>
-          <a href="About.html">About</a>
-          <a href="mailto:info@itsolutions.com.au">Email</a>
-      </nav>
-  </header>
-<div class="page-wrapper">
+<?php 
+  $pageTitle = "Group Information";
+  include "header.inc";
+?>
   <!-- Navigation within page-->
   <aside class="side-shortcuts">
       <p>
@@ -79,12 +55,12 @@
   <section id="Contribution">
     <h2>Member Contributions</h2>
     <dl>
+      <dt><strong>Charlie Cafici</strong></dt>
+      <dd>Job Description page, CSS styling, settings.php, EOI table, PHP to reuse common elements</dd>
       <dt><strong>Ethan Weinman</strong></dt>
-      <dd>Job Application page, group details page</dd>
+      <dd>Job Application page, group details page, validated EOI table</dd>
       <dt><strong>Ari Eddy</strong></dt>
       <dd>Home page</dd>
-      <dt><strong>Charlie Cafici</strong></dt>
-      <dd>Job Description page, CSS styling</dd>
       <dt><strong>Dylan Virduzzo</strong></dt>
       <dd>CSS styling</dd>
     </dl>
@@ -118,20 +94,5 @@
     </table>
   </section>
   </main>
-  </div>
-  <footer>
-      <div class="footer-left">
-      <img src="images/logosmall.jpg" alt="Logo of a computer with a T in a hexagon on the screen">
-  <p>
-      IT Solutions&copy;
-  </p>
-  </div>
-  <div class="footer-right">
-  <p>
-      <a target=_blank href=https://codecrafterscollectivegrouptask.atlassian.net/jira/software/projects/MBA/boards/1>
-      <img src="images/jiralogo.png" alt="Jira logo"></a>
-  </p>
-  </div>
-  </footer>
-</body>
-</html>
+</div>
+<?php include "footer.inc"; ?>
