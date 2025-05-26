@@ -55,12 +55,12 @@
   <section id="Contribution">
     <h2>Member Contributions</h2>
     <dl>
+      <dt><strong>Charlie Cafici</strong></dt>
+      <dd>Job Description page, CSS styling, settings.php, EOI table, PHP to reuse common elements</dd>
       <dt><strong>Ethan Weinman</strong></dt>
-      <dd>Job Application page, group details page</dd>
+      <dd>Job Application page, group details page, validated EOI table</dd>
       <dt><strong>Ari Eddy</strong></dt>
       <dd>Home page</dd>
-      <dt><strong>Charlie Cafici</strong></dt>
-      <dd>Job Description page, CSS styling</dd>
       <dt><strong>Dylan Virduzzo</strong></dt>
       <dd>CSS styling</dd>
     </dl>
