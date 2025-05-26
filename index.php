@@ -2,6 +2,7 @@
   $pageTitle = 'Home - IT Solutions';
   include "header.inc";
 ?>
+
 <main>
   <article>
     <section id="description">
@@ -20,4 +21,5 @@
     </section>
   </article>
 </main>
+
 <?php include 'footer.inc'; ?>

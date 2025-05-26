@@ -20,6 +20,7 @@
         <a href="Skills">Skills</a>
       </p>
   </aside>
+<!--Main Content-->
 <main>
   <fieldset>
      <hr>

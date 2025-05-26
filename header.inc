@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="styles/styles.css">
     <title><?php echo $pageTitle; ?></title>
 </head>
+
 <body>
   <header class="navbar">
     <div class="brand">

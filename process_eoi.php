@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 require_once __DIR__ . '/settings.php';
 $conn = db_connect();
 
-// *** DROP old table to ensure clean schema (run once) ***
+//  Delete old table if it exists
 $conn->query("DROP TABLE IF EXISTS eoi;");
 
 // Create table with correct columns (no duplicate 'dob')
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS eoi (
     skill4 VARCHAR(50),
     skill5 VARCHAR(50),
     other_skills TEXT,
-    status ENUM('New','Current','Final') NOT NULL DEFAULT 'New'
+    status ENUM( ) NOT NULL DEFAULT 'New'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 ";
 
@@ -42,12 +42,12 @@ if (!$conn->query($createSQL)) {
     die("Table creation failed: " . $conn->error);
 }
 
-// Helper: sanitize input
+// Clean inputs
 function clean($data) {
     return htmlspecialchars(stripslashes(trim($data)), ENT_QUOTES, 'UTF-8');
 }
 
-// Collect and sanitize inputs
+// Collect and clean inputs
 $job_ref      = clean($_POST['job-ref'] ?? '');
 $first_name   = clean($_POST['first-name'] ?? '');
 $last_name    = clean($_POST['last-name'] ?? '');
@@ -62,16 +62,16 @@ $phone        = clean($_POST['phone'] ?? '');
 $skills_arr   = $_POST['skills'] ?? [];
 $other_skills = clean($_POST['other-skills'] ?? '');
 
-// Convert dob from dd/mm/yyyy to yyyy-mm-dd for MySQL DATE
+// Convert dob from dd/mm/yyyy to yyyy-mm-dd for SQL Date
 $dob = null;
 if (preg_match('/^(\d{2})\/(\d{2})\/(\d{4})$/', $dob_raw, $matches)) {
     $dob = $matches[3] . '-' . $matches[2] . '-' . $matches[1];
 }
 
-// Validation errors array
+// Catch any validation errors
 $errors = [];
 
-// Validation rules
+// Rules for validation
 if (empty($job_ref)) {
     $errors[] = 'Job reference is required.';
 }
@@ -124,7 +124,7 @@ if (!is_array($skills_arr) || count($skills_arr) < 1) {
     $errors[] = 'At least one technical skill must be selected.';
 }
 
-// Limit and sanitize skills
+// Limit and clean skills
 $skills_arr = array_slice($skills_arr, 0, 5);
 foreach ($skills_arr as $skill) {
     if (!preg_match('/^[A-Za-z0-9 ]{1,50}$/', $skill)) {
@@ -132,7 +132,7 @@ foreach ($skills_arr as $skill) {
     }
 }
 
-// Display errors if any
+// Display any errors caught
 if ($errors) {
     echo "<h2>Submission Errors</h2><ul>";
     foreach ($errors as $e) {
@@ -174,7 +174,7 @@ if ($stmt->error) {
     die("Insert failed: " . $stmt->error);
 }
 
-// Confirmation message
+// Provide confirmation to user
 $eoiId = $stmt->insert_id;
 echo "<h2>Thank you!</h2><p>Your application has been recorded. Your EOI number is <strong>#{$eoiId}</strong>.</p>";
 

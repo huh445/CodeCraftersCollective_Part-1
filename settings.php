@@ -7,7 +7,7 @@ $db_user = 'root';
 $db_pass = '';
 $db_name = 'codecrafterscollective';
 
-// Create and return a MySQLi connection
+// Create and connection to MySQL
 function db_connect() {
     global $db_host, $db_user, $db_pass, $db_name;
 
