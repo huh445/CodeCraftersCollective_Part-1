@@ -1,109 +1,76 @@
 <?php
-    $pageTitle = "Job Descriptions";
-    include "header.inc";
-?>
-    <!-- Navigation within page-->
-    <aside class="side-shortcuts">
-        <p>
-            <a href="#">Back to top</a>
-        </p>
-        <p>
-            <a href="#juniorsoftware">Junior Software Developer</a>
-        </p>
-        <p>
-            <a href="#cybersecurity">Cybersecurity Specialist</a>
-        </p>
-    </aside>
-<main>
-    <section id="juniorsoftware">
-        <h2>JD101 - Junior Software Developer</h2>
-        <h3>Salary Range</h3>
-        <p>$65,000 - $85,000 AUD per year + superannuation</p>
-        <h3>Overview</h3>
-        <p>
-            We're looking for a passionate and driven Junior Software Developer to join our growing development team.
-            You&#39;ll be working closely with senior developers and project managers to build, test, and maintain high-quality software solutions.
-            This is a great opportunity to grow your skills in a supportive, fast-paced environment that values learning and innovation.
-        </p>
-        <h3>Key Responsibilities</h3>
-        <ol>
-            <li>Collaborate with the team to develop new features and maintain existing applications.</li>
-            <li>Write clean, efficient, and well-documented code.</li>
-            <li>Participate in code reviews and incorporate feedback to improve code quality.</li>
-            <li>Assist in testing, debugging, and deployment processes.</li>
-            <li>Work closely with UX/UI designers to implement user-friendly interfaces.</li>
-            <li>Learn and adapt to new technologies and frameworks as needed.</li>
-        </ol>
-        <h3>Required Skills & Experience</h3>
-        <ul>
-            <li>Basic knowledge of one or more programming languages (e.g., Python, C#, JavaScript).</li>
-            <li>Understanding of software development principles and version control systems (preferably Git).</li>
-            <li>Strong problem-solving skills and a willingness to learn.</li>
-            <li>Ability to work both independently and in a team setting.</li>
-            <li>Good communication skills and attention to detail.</li>
-        </ul>
-        <h3>Preferred Qualifications</h3>
-        <ul>
-            <li>Familiarity with web development frameworks (e.g., React, Django, ASP.NET).</li>
-            <li>Experience working on personal or academic software projects.</li>
-            <li>Exposure to databases (e.g., SQL, MongoDB) and RESTful APIs.</li>
-        </ul>
-        <h3>What You&#39;ll Get</h3>
-        <ul>
-            <li>Mentorship from experienced developers.</li>
-            <li>Access to training materials and courses.</li>
-            <li>Opportunity to work on real-world projects from day one.</li>
-            <li>A relaxed and flexible working environment with a focus on growth.</li>
-        </ul>
-    </section>
-    <hr>    
-    <!--Cybersecurity Job Information-->
-    <section id="cybersecurity">
-        <h2>CS205 - Cybersecurity Specialist</h2>
-        <h3>Salary Range</h3>
-        <p>$95,000 - $120,000 AUD per year + superannuation</p>
-        <h3>Overview</h3>
-        <p>
-            We&#39;re looking for an experienced and proactive Cybersecurity Specialist to strengthen our security posture and lead key initiatives across infrastructure, application, and cloud environments.
-            You&#39;ll play a central role in detecting and responding to threats, securing our systems, and driving continuous improvement across security processes and controls.
-        </p>
-        <h3>Key Responsibilities</h3>
-        <ol>
-            <li>Monitor, investigate, and respond to security incidents across networks, endpoints, and cloud environments.</li>
-            <li>Perform vulnerability assessments and coordinate remediation efforts with relevant teams.</li>
-            <li>Implement, maintain, and tune security tools (SIEM, IDS/IPS, EDR, firewalls, etc.).</li>
-            <li>Develop and enforce security policies, procedures, and technical standards.</li>
-            <li>Conduct threat hunting activities and proactively identify emerging risks.</li>
-            <li>Work with DevOps and IT teams to secure CI/CD pipelines, APIs, and infrastructure-as-code environments.</li>
-            <li>Assist in internal and external audits, risk assessments, and compliance reviews (e.g., ISO 27001, SOC 2).</li>
-        </ol>
-        <h3>Required Skills & Experience</h3>
-        <ul>
-            <li>3+ years of experience in cybersecurity, IT security operations, or related technical fields.</li>
-            <li>Solid understanding of network protocols, operating systems (Linux & Windows), and cloud platforms (AWS, Azure, or GCP).</li>
-            <li>Hands-on experience with security tools such as Splunk, CrowdStrike, Tenable, Palo Alto, or similar.</li>
-            <li>Strong incident response and forensics capabilities.</li>
-            <li>Excellent problem-solving and communication skills, especially under pressure.</li>
-        </ul>
-        <h3>Preferred Qualifications</h3>
-        <ul>
-            <li>Relevant certifications such as CISSP, CISM, OSCP, CEH, or equivalent.</li>
-            <li>Familiarity with secure coding practices and working with development teams.</li>
-            <li>Experience with scripting or automation tools (Python, Bash, PowerShell).</li>
-            <li>Exposure to regulatory frameworks like NIST CSF, ISO 27001, or GDPR.</li>
-        </ul>
-        <h3>What You&#39;ll Get</h3>
-        <ul>
-            <li>Ownership of impactful security initiatives.</li>
-            <li>Continuous professional development with training and certification support.</li>
-            <li>Flexible work arrangements and a collaborative team environment.</li>
-            <li>A security-first culture where your ideas and expertise are valued.</li>
-        </ul>
-    </section>
-</main>
-    </div>
-<?php include "footer.inc"; ?>
+$pageTitle = "Job Descriptions";
+include "header.inc";
 
-<!--GenAI, as ChatGPT, prompts are listed below-->
-<!--Give me a job description for a Junior Software Developer at a fake company. dont name the company please. include average salary-->
-<!--now do it for Cybersecurity Specialist-->
+require_once "settings.php"; // Your DB connection details
+$conn = db_connect();
+
+$sql = "SELECT * FROM jobs ORDER BY job_code";
+$result = $conn->query($sql);
+
+if (!$result) {
+    die("Database query failed: " . $conn->error);
+}
+?>
+
+<aside class="side-shortcuts">
+    <p><a href="#">Back to top</a></p>
+    <?php
+    // Navigation links to each job
+    while ($job = $result->fetch_assoc()) {
+        $anchor = strtolower(preg_replace('/\s+/', '', $job['job_title']));
+        echo "<p><a href='#$anchor'>{$job['job_title']}</a></p>";
+    }
+    // Reset pointer to fetch rows again below
+    $result->data_seek(0);
+    ?>
+</aside>
+
+<main>
+    <?php while ($job = $result->fetch_assoc()): 
+        $anchor = strtolower(preg_replace('/\s+/', '', $job['job_title']));
+        $responsibilities = json_decode($job['responsibilities']);
+        $required_skills = json_decode($job['required_skills']);
+        $preferred_qualifications = json_decode($job['preferred_qualifications']);
+        $benefits = json_decode($job['benefits']);
+    ?>
+    <section id="<?php echo $anchor; ?>">
+        <h2><?php echo htmlspecialchars($job['job_code']) . " - " . htmlspecialchars($job['job_title']); ?></h2>
+        <h3>Salary Range</h3>
+        <p><?php echo htmlspecialchars($job['salary_range']); ?></p>
+        <h3>Overview</h3>
+        <p><?php echo nl2br(htmlspecialchars($job['overview'])); ?></p>
+
+        <h3>Key Responsibilities</h3>
+        <ol>
+            <?php foreach ($responsibilities as $item): ?>
+                <li><?php echo htmlspecialchars($item); ?></li>
+            <?php endforeach; ?>
+        </ol>
+
+        <h3>Required Skills & Experience</h3>
+        <ul>
+            <?php foreach ($required_skills as $skill): ?>
+                <li><?php echo htmlspecialchars($skill); ?></li>
+            <?php endforeach; ?>
+        </ul>
+
+        <h3>Preferred Qualifications</h3>
+        <ul>
+            <?php foreach ($preferred_qualifications as $qual): ?>
+                <li><?php echo htmlspecialchars($qual); ?></li>
+            <?php endforeach; ?>
+        </ul>
+
+        <h3>What You'll Get</h3>
+        <ul>
+            <?php foreach ($benefits as $benefit): ?>
+                <li><?php echo htmlspecialchars($benefit); ?></li>
+            <?php endforeach; ?>
+        </ul>
+    </section>
+    <hr>
+    <?php endwhile; ?>
+</main>
+
+<?php include "footer.inc"; ?>
